@@ -154,7 +154,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545754889805" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545755145705" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -181,7 +181,7 @@
       <option name="presentableId" value="Default" />
       <updated>1545752114336</updated>
       <workItem from="1545752123873" duration="1136000" />
-      <workItem from="1545753302276" duration="1315000" />
+      <workItem from="1545753302276" duration="1673000" />
     </task>
     <task id="LOCAL-00001" summary="feat&lt;modules&gt;: create domain/repository/service/webservice modules">
       <created>1545752875905</created>
@@ -197,11 +197,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545754303190</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit because of unstage file, it seems .gitignore is not working">
+      <created>1545755012659</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1545755012659</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2451000" />
+    <option name="totallyTimeSpent" value="2809000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -247,7 +254,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat&lt;modules&gt;: create domain/repository/service/webservice modules" />
     <MESSAGE value="feat&lt;modules&gt;: set pom files in each module" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat&lt;modules&gt;: set pom files in each module" />
+    <MESSAGE value="commit because of unstage file, it seems .gitignore is not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit because of unstage file, it seems .gitignore is not working" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/domain/pom.xml">
