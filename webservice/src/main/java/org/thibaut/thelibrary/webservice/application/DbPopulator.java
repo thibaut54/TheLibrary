@@ -1,11 +1,11 @@
 package org.thibaut.thelibrary.webservice.application;
 
-import com.thibaut.thelibrary.domain.entity.*;
-import com.thibaut.thelibrary.repository.*;
-import com.thibaut.thelibrary.service.contract.PasswordService;
-import org.thibaut.thelibrary.webservice.util.GenericBuilder;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.thibaut.thelibrary.domain.entity.*;
+import org.thibaut.thelibrary.repository.*;
+import org.thibaut.thelibrary.service.contract.PasswordService;
+import org.thibaut.thelibrary.webservice.util.GenericBuilder;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
