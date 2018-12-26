@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webserviceexamplefromoc:war">
+    <output-path>$PROJECT_DIR$/webservice-example-from-oc/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>webserviceexamplefromoc</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="thelibrary-webservice-example-from-oc.war">
+      <element id="artifact" artifact-name="webserviceexamplefromoc:war exploded" />
+    </root>
+  </artifact>
+</component>

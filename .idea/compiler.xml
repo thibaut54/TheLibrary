@@ -22,6 +22,7 @@
         <module name="repository" />
         <module name="service" />
         <module name="webservice" />
+        <module name="webserviceexamplefromoc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +31,7 @@
       <module name="service" target="1.8" />
       <module name="TheLibrary" target="1.8" />
       <module name="webservice" target="1.8" />
+      <module name="webserviceexamplefromoc" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -39,6 +41,7 @@
       <module name="repository" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="webservice" options="-parameters" />
+      <module name="webserviceexamplefromoc" options="-parameters" />
     </option>
   </component>
 </project>

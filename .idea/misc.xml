@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/webservice" />
+    <file type="web" url="file://$PROJECT_DIR$/webservice-example-from-oc" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
