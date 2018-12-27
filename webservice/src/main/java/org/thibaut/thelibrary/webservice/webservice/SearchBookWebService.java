@@ -2,6 +2,7 @@ package org.thibaut.thelibrary.webservice.webservice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.repository.BookRepository;
 
 import javax.jws.WebMethod;
