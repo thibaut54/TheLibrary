@@ -3,7 +3,7 @@ package org.thibaut.thelibrary.webservice.application;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.domain.entity.*;
-import org.thibaut.thelibrary.repository.*;
+import org.thibaut.thelibrary.repository.repository.*;
 import org.thibaut.thelibrary.service.contract.PasswordService;
 import org.thibaut.thelibrary.webservice.util.GenericBuilder;
 

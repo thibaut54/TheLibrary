@@ -2,11 +2,16 @@ package org.thibaut.thelibrary.webservice.webservice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.thibaut.thelibrary.repository.BookRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
+import org.thibaut.thelibrary.repository.repository.BookRepository;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+@Service
 @Slf4j
 @WebService(serviceName = "SearchBookService", portName = "SearchBookPort",
 		targetNamespace = "http://thelibrary.service.ws/",
@@ -14,13 +19,13 @@ import javax.jws.WebService;
 public class SearchBookWebServiceImpl implements SearchBookWebService{
 
 	@Autowired
-	private BookRepository bookRepository;
+	private RepositoryFactory repositoryFactory;
 
 
 	@WebMethod
 	public String getBookTitle( Integer id ){
 		try {
-			return "The title of the book with id = " + id + " is " + this.bookRepository.findById( id ).get().getTitle();
+			return repositoryFactory.getBookRepository().findById( id ).get().getTitle();
 		}catch (java.lang.Exception ex) {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
