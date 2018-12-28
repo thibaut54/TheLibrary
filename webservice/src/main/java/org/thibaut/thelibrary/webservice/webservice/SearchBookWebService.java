@@ -10,14 +10,7 @@ import javax.xml.ws.ResponseWrapper;
 @WebService(targetNamespace = "http://thelibrary.service.ws/", name = "SearchBook")
 public interface SearchBookWebService {
 
-		@WebResult(name = "return", targetNamespace = "")
-		@RequestWrapper(localName = "getBookTitle",
-				targetNamespace = "http://thelibrary.service.ws/",
-				className = "com.thibaut.thelibrary.webservice.webservice.BookTitle")
-		@WebMethod(action = "urn:BookTitle")
-		@ResponseWrapper(localName = "getBookTitleResponse",
-				targetNamespace = "http://thelibrary.service.ws/",
-				className = "com.thibaut.thelibrary.webservice.webservice.BookTitleResponse")
-		String getBookTitle( @WebParam(name = "id", targetNamespace = "") Integer id );
+	@WebMethod
+	abstract String getBookTitle( Integer id );
 
 	}

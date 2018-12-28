@@ -4,17 +4,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
-import org.thibaut.thelibrary.repository.repository.BookRepository;
 import org.thibaut.thelibrary.webservice.application.Application;
 import org.thibaut.thelibrary.webservice.webservice.SearchBookWebService;
-import org.thibaut.thelibrary.webservice.webservice.SearchBookWebServiceImpl;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 @RunWith( SpringRunner.class )
@@ -44,6 +40,6 @@ public class SearchBookWebServiceTest {
 		String firstBookTitle = repositoryFactory.getBookRepository().findAll().get( 0 ).getTitle();
 		String firstBookTitleFromWS = searchBookWebService.getBookTitle( repositoryFactory.getBookRepository().findAll().get( 0 ).getId() );
 
-		assertTrue( firstBookTitle.equals( firstBookTitleFromWS ) );
+		assertEquals( firstBookTitle, firstBookTitleFromWS );
 	}
 }

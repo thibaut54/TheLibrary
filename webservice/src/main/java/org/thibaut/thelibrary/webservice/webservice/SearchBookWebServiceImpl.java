@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
 import org.thibaut.thelibrary.repository.repository.BookRepository;
+import org.thibaut.thelibrary.service.contract.ManagerFactory;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -16,19 +17,35 @@ import javax.jws.WebService;
 @WebService(serviceName = "SearchBookService", portName = "SearchBookPort",
 		targetNamespace = "http://thelibrary.service.ws/",
 		endpointInterface = "org.thibaut.thelibrary.webservice.webservice.SearchBookWebService" )
-public class SearchBookWebServiceImpl implements SearchBookWebService{
+public class SearchBookWebServiceImpl extends AbstractWebService implements SearchBookWebService{
 
-	@Autowired
-	private RepositoryFactory repositoryFactory;
-
-
+	@Override
 	@WebMethod
 	public String getBookTitle( Integer id ){
-		try {
-			return repositoryFactory.getBookRepository().findById( id ).get().getTitle();
-		}catch (java.lang.Exception ex) {
-			ex.printStackTrace();
-			throw new RuntimeException(ex);
-		}
+		return getManagerFactory().getBookManager().getBookTitle( id );
 	}
 }
+
+//@Service
+//@WebService(serviceName = "SearchBook")
+//public class SearchBookWebServiceImpl {
+//
+//	private ManagerFactory managerFactory;
+//
+//	public ManagerFactory getManagerFactory( ) {
+//		return managerFactory;
+//	}
+//
+//	@Autowired
+//	public void setManagerFactory( ManagerFactory managerFactory ) {
+//		this.managerFactory = managerFactory;
+//	}
+//
+//	@WebMethod
+//	public String getBookTitle( Integer id ){
+//
+//		return getManagerFactory().getBookManager().getBookTitle( id );
+//
+//
+//	}
+//}

@@ -12,6 +12,7 @@
 	<artifactId>webservice-example-from-oc</artifactId>
 	<packaging>war</packaging>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.thibaut.thelibrary</groupId>
