@@ -6,12 +6,14 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"org.thibaut.thelibrary"})
 @EnableJpaRepositories(basePackages = {"org.thibaut.thelibrary"})
 @EntityScan(basePackages = {"org.thibaut.thelibrary"})
+//@ImportResource({"classpath*:wsContext.xml"})
 public class Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

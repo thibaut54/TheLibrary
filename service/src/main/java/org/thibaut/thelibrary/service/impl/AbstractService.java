@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
 
 @Component
-public abstract class AbstractManager {
+public abstract class AbstractService {
 
 	private RepositoryFactory repositoryFactory;
 

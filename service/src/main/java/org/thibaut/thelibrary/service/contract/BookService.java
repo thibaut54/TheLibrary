@@ -1,5 +1,5 @@
 package org.thibaut.thelibrary.service.contract;
 
-public interface BookManager {
+public interface BookService {
 	String getBookTitle( Integer id );
 }

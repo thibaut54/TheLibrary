@@ -1,21 +1,24 @@
 package org.thibaut.thelibrary.webservice.webservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.thibaut.thelibrary.service.contract.ManagerFactory;
+import org.thibaut.thelibrary.service.contract.ServiceFactory;
 
-@Controller
+@Service
+//@Component
 public abstract class AbstractWebService {
 
+	private ServiceFactory serviceFactory;
+
+	ServiceFactory getServiceFactory( ) {
+		return serviceFactory;
+	}
+
 	@Autowired
-	private ManagerFactory managerFactory;
-
-	ManagerFactory getManagerFactory( ) {
-		return managerFactory;
+	public void setServiceFactory( ServiceFactory serviceFactory ) {
+		this.serviceFactory = serviceFactory;
 	}
 
-	public void setManagerFactory( ManagerFactory managerFactory ) {
-		this.managerFactory = managerFactory;
-	}
+
 }
