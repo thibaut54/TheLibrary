@@ -7,18 +7,22 @@
 			<xsd:import namespace="http://thelibrary.service.ws/" schemaLocation="http://desktop-11dqe2u.local:8080/thelibrary-webservice/SearchBookService?xsd=1"/>
 		</xsd:schema>
 	</types>
+
 	<message name="getBookTitle">
 		<part name="parameters" element="tns:getBookTitle"/>
 	</message>
+
 	<message name="getBookTitleResponse">
 		<part name="parameters" element="tns:getBookTitleResponse"/>
 	</message>
+
 	<portType name="SearchBook">
 		<operation name="getBookTitle">
 			<input wsam:Action="http://thelibrary.service.ws/SearchBook/getBookTitleRequest" message="tns:getBookTitle"/>
 			<output wsam:Action="http://thelibrary.service.ws/SearchBook/getBookTitleResponse" message="tns:getBookTitleResponse"/>
 		</operation>
 	</portType>
+
 	<binding name="SearchBookPortBinding" type="tns:SearchBook">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 		<operation name="getBookTitle">
@@ -31,9 +35,11 @@
 			</output>
 		</operation>
 	</binding>
+
 	<service name="SearchBookService">
 		<port name="SearchBookPort" binding="tns:SearchBookPortBinding">
 			<soap:address location="http://desktop-11dqe2u:8080/thelibrary-webservice/SearchBookService"/>
 		</port>
 	</service>
+
 </definitions>

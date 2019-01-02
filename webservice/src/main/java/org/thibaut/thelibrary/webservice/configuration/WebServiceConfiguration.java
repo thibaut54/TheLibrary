@@ -22,12 +22,14 @@ public class WebServiceConfiguration {
 	@Autowired
 	private SpringBus bus;
 
+
 	@Bean
 	public Endpoint endpoint() {
 		EndpointImpl endpoint = new EndpointImpl(bus, SearchBookWebService.class);
 		endpoint.publish("/SearchBookService");
 		return endpoint;
 	}
+
 
 	@Bean
 	public ServletRegistrationBean messageDispatcherServlet( ApplicationContext applicationContext)

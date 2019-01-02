@@ -22,7 +22,6 @@ import javax.xml.ws.Endpoint;
 @ComponentScan(basePackages = {"org.thibaut.thelibrary"})
 @EnableJpaRepositories(basePackages = {"org.thibaut.thelibrary"})
 @EntityScan(basePackages = {"org.thibaut.thelibrary"})
-//@ImportResource({"classpath*:wsContext.xml"})
 public class Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
@@ -31,27 +30,27 @@ public class Application extends SpringBootServletInitializer {
 
 	}
 
-	@Bean
-	public ServletRegistrationBean dispatcherServlet() {
-		return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
-	}
-
-	@Bean(name = Bus.DEFAULT_BUS_ID)
-	public SpringBus springBus() {
-		return new SpringBus();
-	}
-
-	@Bean
-	public SearchBookWebService searchBookWebService() {
-		return new SearchBookWebServiceImpl();
-	}
-
-	@Bean
-	public Endpoint endpoint() {
-		EndpointImpl endpoint = new EndpointImpl(springBus(), searchBookWebService());
-		endpoint.publish("/SearchBookWebService");
-		return endpoint;
-	}
+//	@Bean
+//	public ServletRegistrationBean dispatcherServlet() {
+//		return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
+//	}
+//
+//	@Bean(name = Bus.DEFAULT_BUS_ID)
+//	public SpringBus springBus() {
+//		return new SpringBus();
+//	}
+//
+//	@Bean
+//	public SearchBookWebService searchBookWebService() {
+//		return new SearchBookWebServiceImpl();
+//	}
+//
+//	@Bean
+//	public Endpoint endpoint() {
+//		EndpointImpl endpoint = new EndpointImpl(springBus(), searchBookWebService());
+//		endpoint.publish("/SearchBookWebService");
+//		return endpoint;
+//	}
 
 	@Override
 	protected SpringApplicationBuilder configure( SpringApplicationBuilder builder ) {

@@ -9,13 +9,13 @@ import org.thibaut.thelibrary.service.contract.ServiceFactory;
 //@Component
 public abstract class AbstractWebService {
 
+	@Autowired
 	private ServiceFactory serviceFactory;
 
 	ServiceFactory getServiceFactory( ) {
 		return serviceFactory;
 	}
 
-	@Autowired
 	public void setServiceFactory( ServiceFactory serviceFactory ) {
 		this.serviceFactory = serviceFactory;
 	}
