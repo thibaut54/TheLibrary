@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/repository/repository.iml" filepath="$PROJECT_DIR$/repository/repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
       <module fileurl="file://$PROJECT_DIR$/webservice/webservice.iml" filepath="$PROJECT_DIR$/webservice/webservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/webservice-example-from-oc/webserviceexamplefromoc.iml" filepath="$PROJECT_DIR$/webservice-example-from-oc/webserviceexamplefromoc.iml" />
     </modules>
   </component>
 </project>

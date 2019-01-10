@@ -22,7 +22,6 @@
         <module name="repository" />
         <module name="service" />
         <module name="webservice" />
-        <module name="webserviceexamplefromoc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
