@@ -30,6 +30,28 @@ public class Application extends SpringBootServletInitializer {
 
 	}
 
+//	@Bean
+//	public ServletRegistrationBean dispatcherServlet() {
+//		return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
+//	}
+//
+//	@Bean(name = Bus.DEFAULT_BUS_ID)
+//	public SpringBus springBus() {
+//		return new SpringBus();
+//	}
+//
+//	@Bean
+//	public SearchBookWebService searchBookWebService() {
+//		return new SearchBookWebServiceImpl();
+//	}
+//
+//	@Bean
+//	public Endpoint endpoint() {
+//		EndpointImpl endpoint = new EndpointImpl(springBus(), searchBookWebService());
+//		endpoint.publish("/SearchBookWebService");
+//		return endpoint;
+//	}
+
 	@Override
 	protected SpringApplicationBuilder configure( SpringApplicationBuilder builder ) {
 		return builder.sources( Application.class );

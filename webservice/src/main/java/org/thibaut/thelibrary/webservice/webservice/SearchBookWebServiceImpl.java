@@ -21,6 +21,10 @@ import javax.jws.WebService;
 		endpointInterface = "org.thibaut.thelibrary.webservice.webservice.SearchBookWebService")
 public class SearchBookWebServiceImpl extends AbstractWebService implements SearchBookWebService{
 
+//	@PostConstruct
+//	public void init() {
+//		SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
+//	}
 
 	@Override
 	@WebMethod
@@ -44,3 +48,26 @@ public class SearchBookWebServiceImpl extends AbstractWebService implements Sear
 
 }
 
+//@Service
+//@WebService(serviceName = "SearchBook")
+//public class SearchBookWebServiceImpl {
+//
+//	private ServiceFactory managerFactory;
+//
+//	public ServiceFactory getServiceFactory( ) {
+//		return managerFactory;
+//	}
+//
+//	@Autowired
+//	public void setServiceFactory( ServiceFactory managerFactory ) {
+//		this.managerFactory = managerFactory;
+//	}
+//
+//	@WebMethod
+//	public String getBookTitle( Integer id ){
+//
+//		return getServiceFactory().getBookService().getBookTitle( id );
+//
+//
+//	}
+//}
