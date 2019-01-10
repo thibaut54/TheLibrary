@@ -13,8 +13,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.thibaut.thelibrary.webservice.webservice.SearchBookWebService;
-import org.thibaut.thelibrary.webservice.webservice.SearchBookWebServiceImpl;
 
 import javax.xml.ws.Endpoint;
 
@@ -29,28 +27,6 @@ public class Application extends SpringBootServletInitializer {
 		SpringApplication.run( Application.class, args );
 
 	}
-
-//	@Bean
-//	public ServletRegistrationBean dispatcherServlet() {
-//		return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
-//	}
-//
-//	@Bean(name = Bus.DEFAULT_BUS_ID)
-//	public SpringBus springBus() {
-//		return new SpringBus();
-//	}
-//
-//	@Bean
-//	public SearchBookWebService searchBookWebService() {
-//		return new SearchBookWebServiceImpl();
-//	}
-//
-//	@Bean
-//	public Endpoint endpoint() {
-//		EndpointImpl endpoint = new EndpointImpl(springBus(), searchBookWebService());
-//		endpoint.publish("/SearchBookWebService");
-//		return endpoint;
-//	}
 
 	@Override
 	protected SpringApplicationBuilder configure( SpringApplicationBuilder builder ) {
