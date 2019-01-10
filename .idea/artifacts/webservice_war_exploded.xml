@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="webservice:war exploded">
-    <output-path>$PROJECT_DIR$/webservice/target/thelibrary-webservice</output-path>
+    <output-path>$PROJECT_DIR$/webservice/target/webservice-0.0.1-SNAPSHOT</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -124,14 +124,12 @@
           <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-ws-policy:3.2.7" />
           <element id="library" level="project" name="Maven: org.apache.neethi:neethi:3.1.1" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
-          <element id="library" level="project" name="Maven: javax.xml:webservices-api:@metro.version@" />
-          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.9.5" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/webservice/target/thelibrary-webservice/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/webservice/target/webservice-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="webservice/web/Web" />
     </root>

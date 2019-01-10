@@ -22,7 +22,6 @@
         <module name="repository" />
         <module name="service" />
         <module name="webservice" />
-        <module name="webserviceexamplefromoc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -36,7 +35,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="TheLibrary" options="-parameters" />
+      <module name="TheLibrary" options="" />
       <module name="domain" options="-parameters" />
       <module name="repository" options="-parameters" />
       <module name="service" options="-parameters" />
