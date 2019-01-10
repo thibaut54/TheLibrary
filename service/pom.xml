@@ -15,6 +15,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.thibaut.thelibrary</groupId>
+			<artifactId>domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thibaut.thelibrary</groupId>
 			<artifactId>repository</artifactId>
 		</dependency>
 		<dependency>
