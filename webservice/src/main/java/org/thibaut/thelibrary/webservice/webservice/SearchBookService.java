@@ -24,7 +24,7 @@ public class SearchBookService extends AbstractWebService implements generated.s
 		return getServiceFactory().getBookService().getBookTitle( id );
 	}
 
-		public SearchBookService() {
+	public SearchBookService() {
 		AutowiredAnnotationBeanPostProcessor bpp = new AutowiredAnnotationBeanPostProcessor();
 		WebApplicationContext currentContext = WebApplicationContextLocator.getCurrentWebApplicationContext();
 		bpp.setBeanFactory(currentContext.getAutowireCapableBeanFactory());
@@ -37,4 +37,5 @@ public class SearchBookService extends AbstractWebService implements generated.s
 		bpp.setBeanFactory(new DefaultListableBeanFactory(context));
 		bpp.processInjection(this);
 	}
+
 }
