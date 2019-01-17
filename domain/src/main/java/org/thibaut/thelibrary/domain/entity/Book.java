@@ -25,13 +25,14 @@ public class Book {
 	private Integer id;
 	private String title;
 
+	private String genre;
 	private String language;
 	private Integer isbn;
 	private LocalDate publicationDate;
 	private Integer numberOfPages;
 
-	@ManyToMany(mappedBy = "books")
-	private List< Author > author;
+	@ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
+	private List< Author > authors;
 
 	@ManyToMany
 	@JoinTable(

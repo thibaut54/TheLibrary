@@ -13,7 +13,7 @@ import java.util.List;
  * @created 17-déc.-2018 16:31:51
  */
 @Entity
-@Table(name = "author")
+@Table(name = "authors")
 @Getter
 @Setter
 @EqualsAndHashCode
