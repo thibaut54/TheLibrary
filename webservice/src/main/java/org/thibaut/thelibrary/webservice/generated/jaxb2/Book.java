@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour book complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="book"&gt;
@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="language" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="authors" type="{http://spring.io/guides/gs-producing-web-service}author" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="category" type="{http://spring.io/guides/gs-producing-web-service}category" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,7 +37,8 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "title",
     "language",
-    "authors"
+    "authors",
+    "category"
 })
 public class Book {
 
@@ -48,9 +50,11 @@ public class Book {
     protected String language;
     @XmlElement(namespace = "http://spring.io/guides/gs-producing-web-service")
     protected List<Author> authors;
+    @XmlElement(namespace = "http://spring.io/guides/gs-producing-web-service")
+    protected List<Category> category;
 
     /**
-     * Obtient la valeur de la propriété id.
+     * Obtient la valeur de la propri�t� id.
      * 
      */
     public int getId() {
@@ -58,7 +62,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété id.
+     * D�finit la valeur de la propri�t� id.
      * 
      */
     public void setId(int value) {
@@ -66,7 +70,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété title.
+     * Obtient la valeur de la propri�t� title.
      * 
      * @return
      *     possible object is
@@ -78,7 +82,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété title.
+     * D�finit la valeur de la propriété title.
      * 
      * @param value
      *     allowed object is
@@ -90,7 +94,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété language.
+     * Obtient la valeur de la propri�t� language.
      * 
      * @return
      *     possible object is
@@ -102,7 +106,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété language.
+     * D�finit la valeur de la propri�t� language.
      * 
      * @param value
      *     allowed object is
@@ -140,6 +144,35 @@ public class Book {
             authors = new ArrayList<Author>();
         }
         return this.authors;
+    }
+
+    /**
+     * Gets the value of the category property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the category property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCategory().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Category }
+     * 
+     * 
+     */
+    public List<Category> getCategory() {
+        if (category == null) {
+            category = new ArrayList<Category>();
+        }
+        return this.category;
     }
 
 }

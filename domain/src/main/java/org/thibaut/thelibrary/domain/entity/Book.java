@@ -25,7 +25,13 @@ public class Book {
 	private Integer id;
 	private String title;
 
-	private String genre;
+	@ManyToMany
+	@JoinTable(
+			name = "categories_of_books",
+			joinColumns = { @JoinColumn(name = "book_id") },
+			inverseJoinColumns = { @JoinColumn(name = "category_id") } )
+	private List< Category > categories;
+
 	private String language;
 	private Integer isbn;
 	private LocalDate publicationDate;

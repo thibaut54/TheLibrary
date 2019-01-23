@@ -48,7 +48,7 @@ public class Author {
     protected String nationality;
 
     /**
-     * Obtient la valeur de la propriété id.
+     * Obtient la valeur de la propri�t� id.
      * 
      */
     public int getId() {
@@ -56,7 +56,7 @@ public class Author {
     }
 
     /**
-     * Définit la valeur de la propriété id.
+     * D�finit la valeur de la propri�t� id.
      * 
      */
     public void setId(int value) {
@@ -64,7 +64,7 @@ public class Author {
     }
 
     /**
-     * Obtient la valeur de la propriété firstName.
+     * Obtient la valeur de la propri�t� firstName.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class Author {
     }
 
     /**
-     * Définit la valeur de la propriété firstName.
+     * D�finit la valeur de la propri�t� firstName.
      * 
      * @param value
      *     allowed object is
@@ -88,7 +88,7 @@ public class Author {
     }
 
     /**
-     * Obtient la valeur de la propriété lastName.
+     * Obtient la valeur de la propri�t� lastName.
      * 
      * @return
      *     possible object is
@@ -100,7 +100,7 @@ public class Author {
     }
 
     /**
-     * Définit la valeur de la propriété lastName.
+     * D�finit la valeur de la propri�t� lastName.
      * 
      * @param value
      *     allowed object is
@@ -112,7 +112,7 @@ public class Author {
     }
 
     /**
-     * Obtient la valeur de la propriété nationality.
+     * Obtient la valeur de la propri�t� nationality.
      * 
      * @return
      *     possible object is
@@ -124,7 +124,7 @@ public class Author {
     }
 
     /**
-     * Définit la valeur de la propriété nationality.
+     * D�finit la valeur de la propri�t� nationality.
      * 
      * @param value
      *     allowed object is

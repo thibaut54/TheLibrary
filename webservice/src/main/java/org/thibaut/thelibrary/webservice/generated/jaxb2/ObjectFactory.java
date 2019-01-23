@@ -61,4 +61,12 @@ public class ObjectFactory {
         return new Author();
     }
 
+    /**
+     * Create an instance of {@link Category }
+     * 
+     */
+    public Category createCategory() {
+        return new Category();
+    }
+
 }

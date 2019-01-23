@@ -30,29 +30,30 @@ public class BookEndpoint {
 	@ResponsePayload
 	public GetBookResponse getBook( @RequestPayload GetBookRequest request) {
 
-		GetBookResponse response = new GetBookResponse();
-		org.thibaut.thelibrary.domain.entity.Book bookDomain = serviceFactory.getBookService().getBookById( ( request.getId() ));
-
-		List< Author > authorsDomain = bookDomain.getAuthors();
-		List< org.thibaut.thelibrary.webservice.generated.jaxb2.Author > authorsResponse = new ArrayList<>();
-
-		for ( Author authorDomain : authorsDomain ) {
-			org.thibaut.thelibrary.webservice.generated.jaxb2.Author authorResponse = new org.thibaut.thelibrary.webservice.generated.jaxb2.Author();
-			authorResponse.setId( authorDomain.getId() );
-			authorResponse.setFirstName( authorDomain.getFirstName() );
-			authorResponse.setLastName( authorDomain.getLastName() );
-			authorResponse.setNationality( authorDomain.getNationality() );
-
-			authorsResponse.add( authorResponse );
-		}
-
-		Book bookResponse = new Book();
-		bookResponse.setId( bookDomain.getId() );
-		bookResponse.getAuthors().addAll( authorsResponse );
-		bookResponse.setTitle( bookDomain.getTitle() );
-		bookResponse.setLanguage( bookDomain.getLanguage() );
-
-		response.setBook( bookResponse );
-		return response;
+//		GetBookResponse response = new GetBookResponse();
+//		org.thibaut.thelibrary.domain.entity.Book bookDomain = serviceFactory.getBookService().getBookById( ( request.getId() ));
+//
+//		List< Author > authorsDomain = bookDomain.getAuthors();
+//		List< org.thibaut.thelibrary.webservice.generated.jaxb2.Author > authorsResponse = new ArrayList<>();
+//
+//		for ( Author authorDomain : authorsDomain ) {
+//			org.thibaut.thelibrary.webservice.generated.jaxb2.Author authorResponse = new org.thibaut.thelibrary.webservice.generated.jaxb2.Author();
+//			authorResponse.setId( authorDomain.getId() );
+//			authorResponse.setFirstName( authorDomain.getFirstName() );
+//			authorResponse.setLastName( authorDomain.getLastName() );
+//			authorResponse.setNationality( authorDomain.getNationality() );
+//
+//			authorsResponse.add( authorResponse );
+//		}
+//
+//		Book bookResponse = new Book();
+//		bookResponse.setId( bookDomain.getId() );
+//		bookResponse.getAuthors().addAll( authorsResponse );
+//		bookResponse.setTitle( bookDomain.getTitle() );
+//		bookResponse.setLanguage( bookDomain.getLanguage() );
+//
+//		response.getBook().add( bookResponse );
+//		return response;
+		return null;
 	}
 }
