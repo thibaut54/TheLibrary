@@ -10,8 +10,6 @@ public class RepositoryFactoryImpl implements RepositoryFactory {
 
 
 	private BookRepository bookRepository;
-	private AuthorRepository authorRepository;
-	private StyleRepository styleRepository;
 
 	@Override
 	public BookRepository getBookRepository( ) {
@@ -22,27 +20,5 @@ public class RepositoryFactoryImpl implements RepositoryFactory {
 	@Autowired
 	public void setBookRepository( BookRepository bookRepository ) {
 		this.bookRepository = bookRepository;
-	}
-
-	@Override
-	public AuthorRepository getAuthorRepository( ) {
-		return authorRepository;
-	}
-
-	@Override
-	@Autowired
-	public void setAuthorRepository( AuthorRepository authorRepository ) {
-		this.authorRepository = authorRepository;
-	}
-
-	@Override
-	public StyleRepository getStyleRepository( ) {
-		return styleRepository;
-	}
-
-	@Override
-	@Autowired
-	public void setStyleRepository( StyleRepository styleRepository ) {
-		this.styleRepository = styleRepository;
 	}
 }
