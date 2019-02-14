@@ -25,13 +25,20 @@ public class Book {
 	private Integer id;
 	private String title;
 
+	@ManyToMany
+	@JoinTable(
+			name = "categories_of_books",
+			joinColumns = { @JoinColumn(name = "book_id") },
+			inverseJoinColumns = { @JoinColumn(name = "category_id") } )
+	private List< Category > categories;
+
 	private String language;
 	private Integer isbn;
 	private LocalDate publicationDate;
 	private Integer numberOfPages;
 
-	@ManyToMany(mappedBy = "books")
-	private List< Author > author;
+	@ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
+	private List< Author > authors;
 
 	@ManyToMany
 	@JoinTable(
