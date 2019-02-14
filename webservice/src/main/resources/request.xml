@@ -3,7 +3,7 @@
 	<soapenv:Header/>
 	<soapenv:Body>
 		<gs:getBookRequest>
-			<gs:id>54</gs:id>
+			<gs:bookTitle>Book1</gs:bookTitle>
 		</gs:getBookRequest>
 	</soapenv:Body>
 </soapenv:Envelope>

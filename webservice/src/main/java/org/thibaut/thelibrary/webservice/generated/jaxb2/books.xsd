@@ -6,9 +6,9 @@
     <xs:element name="getBookRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="title" type="xs:string"/>
+                <xs:element name="bookTitle" type="xs:string"/>
                 <xs:element name="authorName" type="xs:string"/>
-                <xs:element name="category" type="xs:string"/>
+                <xs:element name="bookCategory" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

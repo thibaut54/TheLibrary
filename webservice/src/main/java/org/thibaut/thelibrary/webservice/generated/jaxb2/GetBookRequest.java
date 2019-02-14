@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="bookTitle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="authorName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="category" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="bookCategory" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -31,42 +31,42 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "title",
+    "bookTitle",
     "authorName",
-    "category"
+    "bookCategory"
 })
 @XmlRootElement(name = "getBookRequest", namespace = "http://spring.io/guides/gs-producing-web-service")
 public class GetBookRequest {
 
     @XmlElement(namespace = "http://spring.io/guides/gs-producing-web-service", required = true)
-    protected String title;
+    protected String bookTitle;
     @XmlElement(namespace = "http://spring.io/guides/gs-producing-web-service", required = true)
     protected String authorName;
     @XmlElement(namespace = "http://spring.io/guides/gs-producing-web-service", required = true)
-    protected String category;
+    protected String bookCategory;
 
     /**
-     * Obtient la valeur de la propri�t� title.
+     * Obtient la valeur de la propri�t� bookTitle.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTitle() {
-        return title;
+    public String getBookTitle() {
+        return bookTitle;
     }
 
     /**
-     * D�finit la valeur de la propriété title.
+     * D�finit la valeur de la propri�t� bookTitle.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTitle(String value) {
-        this.title = value;
+    public void setBookTitle(String value) {
+        this.bookTitle = value;
     }
 
     /**
@@ -94,27 +94,27 @@ public class GetBookRequest {
     }
 
     /**
-     * Obtient la valeur de la propri�t� category.
+     * Obtient la valeur de la propri�t� bookCategory.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCategory() {
-        return category;
+    public String getBookCategory() {
+        return bookCategory;
     }
 
     /**
-     * D�finit la valeur de la propri�t� category.
+     * D�finit la valeur de la propri�t� bookCategory.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCategory(String value) {
-        this.category = value;
+    public void setBookCategory(String value) {
+        this.bookCategory = value;
     }
 
 }

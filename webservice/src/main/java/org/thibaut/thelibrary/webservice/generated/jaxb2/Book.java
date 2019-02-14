@@ -82,7 +82,7 @@ public class Book {
     }
 
     /**
-     * D�finit la valeur de la propriété title.
+     * D�finit la valeur de la propri�t� title.
      * 
      * @param value
      *     allowed object is

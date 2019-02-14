@@ -13,4 +13,6 @@ import java.util.List;
 public interface BookRepository extends JpaRepository< Book, Integer >, QuerydslPredicateExecutor<Book> {
 
 	public List<Book> getBooksByTitleContainsAndAuthorsContainsAndCategoriesContains( String title, List< Author > authors, Category style );
+
+	public List<Book> getBooksByTitleContains(String title);
 }

@@ -40,7 +40,7 @@ public class Category {
     protected String style;
 
     /**
-     * Obtient la valeur de la propriété id.
+     * Obtient la valeur de la propri�t� id.
      * 
      */
     public int getId() {
@@ -48,7 +48,7 @@ public class Category {
     }
 
     /**
-     * D�finit la valeur de la propriété id.
+     * D�finit la valeur de la propri�t� id.
      * 
      */
     public void setId(int value) {
