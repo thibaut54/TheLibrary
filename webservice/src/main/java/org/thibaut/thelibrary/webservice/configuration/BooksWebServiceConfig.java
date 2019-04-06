@@ -14,7 +14,7 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-public class WebServiceConfig extends WsConfigurerAdapter {
+public class BooksWebServiceConfig extends WsConfigurerAdapter {
 
 	@Bean
 	public ServletRegistrationBean messageDispatcherServlet( ApplicationContext applicationContext) {
@@ -38,4 +38,5 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	public XsdSchema booksSchema() {
 		return new SimpleXsdSchema(new ClassPathResource( "books.xsd" ));
 	}
+
 }

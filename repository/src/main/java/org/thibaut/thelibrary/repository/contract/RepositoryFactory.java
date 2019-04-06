@@ -3,6 +3,7 @@ package org.thibaut.thelibrary.repository.contract;
 import org.thibaut.thelibrary.repository.repository.AuthorRepository;
 import org.thibaut.thelibrary.repository.repository.BookRepository;
 import org.thibaut.thelibrary.repository.repository.CategoryRepository;
+import org.thibaut.thelibrary.repository.repository.UserRepository;
 
 public interface RepositoryFactory {
 
@@ -17,4 +18,8 @@ public interface RepositoryFactory {
 	CategoryRepository getCategoryRepository( );
 
 	void setCategoryRepository( CategoryRepository categoryRepository );
+
+	UserRepository getUserRepository( );
+
+	void setUserRepository( UserRepository userRepository );
 }

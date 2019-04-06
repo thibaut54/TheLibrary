@@ -42,6 +42,7 @@ public class BookEndpoint {
 
 		List< org.thibaut.thelibrary.webservice.generated.jaxb2.Author > authorsResponse = new ArrayList<>();
 
+		//FIXME mettre ça dans un mapper
 		for ( Author authorDomain : authorsDomain ) {
 			org.thibaut.thelibrary.webservice.generated.jaxb2.Author authorResponse = new org.thibaut.thelibrary.webservice.generated.jaxb2.Author();
 			authorResponse.setId( authorDomain.getId() );
@@ -68,6 +69,5 @@ public class BookEndpoint {
 		}
 
 		return response;
-//		return null;
 	}
 }

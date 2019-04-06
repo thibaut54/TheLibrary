@@ -5,6 +5,7 @@ import org.thibaut.thelibrary.domain.entity.Book;
 import java.util.List;
 
 public interface BookService {
+
 	String getBookTitle( Integer id );
 
 	Book getBookById( Integer id );

@@ -5,4 +5,8 @@ public interface ServiceFactory {
 	BookService getBookService( );
 
 	void setBookService( BookService bookService );
+
+	UserService getUserService( );
+
+	void setUserService( UserService userService );
 }
