@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -31,7 +32,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String userName;
-	private LocalDate registrationDate;
+	private LocalDateTime registrationDate;
 
 	@ManyToMany
 	@JoinTable(

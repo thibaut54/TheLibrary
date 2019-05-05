@@ -1,6 +1,8 @@
 
 package org.thibaut.thelibrary.webservice.generated.jaxb2;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour author complex type.
  * 
- * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="author"&gt;
@@ -21,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="books" type="{http://spring.io/guides/gs-producing-web-service}book" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,7 +37,8 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "firstName",
     "lastName",
-    "nationality"
+    "nationality",
+    "books"
 })
 public class Author {
 
@@ -46,9 +50,11 @@ public class Author {
     protected String lastName;
     @XmlElement(namespace = "http://spring.io/guides/gs-producing-web-service", required = true)
     protected String nationality;
+    @XmlElement(namespace = "http://spring.io/guides/gs-producing-web-service")
+    protected List<Book> books;
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ id.
+     * Obtient la valeur de la propriété id.
      * 
      */
     public int getId() {
@@ -56,7 +62,7 @@ public class Author {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ id.
+     * Définit la valeur de la propriété id.
      * 
      */
     public void setId(int value) {
@@ -64,7 +70,7 @@ public class Author {
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ firstName.
+     * Obtient la valeur de la propriété firstName.
      * 
      * @return
      *     possible object is
@@ -76,7 +82,7 @@ public class Author {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ firstName.
+     * Définit la valeur de la propriété firstName.
      * 
      * @param value
      *     allowed object is
@@ -88,7 +94,7 @@ public class Author {
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ lastName.
+     * Obtient la valeur de la propriété lastName.
      * 
      * @return
      *     possible object is
@@ -100,7 +106,7 @@ public class Author {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ lastName.
+     * Définit la valeur de la propriété lastName.
      * 
      * @param value
      *     allowed object is
@@ -112,7 +118,7 @@ public class Author {
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ nationality.
+     * Obtient la valeur de la propriété nationality.
      * 
      * @return
      *     possible object is
@@ -124,7 +130,7 @@ public class Author {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ nationality.
+     * Définit la valeur de la propriété nationality.
      * 
      * @param value
      *     allowed object is
@@ -133,6 +139,35 @@ public class Author {
      */
     public void setNationality(String value) {
         this.nationality = value;
+    }
+
+    /**
+     * Gets the value of the books property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the books property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getBooks().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Book }
+     * 
+     * 
+     */
+    public List<Book> getBooks() {
+        if (books == null) {
+            books = new ArrayList<Book>();
+        }
+        return this.books;
     }
 
 }

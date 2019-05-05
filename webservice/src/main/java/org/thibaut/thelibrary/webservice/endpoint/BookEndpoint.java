@@ -1,5 +1,7 @@
 package org.thibaut.thelibrary.webservice.endpoint;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -11,6 +13,7 @@ import org.thibaut.thelibrary.webservice.generated.jaxb2.Book;
 import org.thibaut.thelibrary.webservice.generated.jaxb2.GetBookRequest;
 import org.thibaut.thelibrary.webservice.generated.jaxb2.GetBookResponse;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +24,11 @@ public class BookEndpoint {
 
 	private ServiceFactory serviceFactory;
 
+	private ModelMapper modelMapper = new ModelMapper();
+
 	@Autowired
 	public BookEndpoint(ServiceFactory serviceFactory) {
+
 		this.serviceFactory = serviceFactory;
 	}
 
@@ -30,43 +36,15 @@ public class BookEndpoint {
 	@ResponsePayload
 	public GetBookResponse getBook( @RequestPayload GetBookRequest request) {
 
+		Type listType = new TypeToken<List< Book>>(){}.getType();
+
 		GetBookResponse response = new GetBookResponse();
 
-		List<org.thibaut.thelibrary.domain.entity.Book> bookListDomain = serviceFactory.getBookService().getBookByTitle( ( request.getBookTitle() ));
+		List<org.thibaut.thelibrary.domain.entity.Book> bookListEntity = serviceFactory.getBookService().getBookByTitle( ( request.getBookTitle() ));
 
-		List< Author > authorsDomain = new ArrayList<>();
+		List< Book > bookListResponse = modelMapper.map( bookListEntity, listType );
 
-		for ( org.thibaut.thelibrary.domain.entity.Book bookDomain: bookListDomain ) {
-			authorsDomain.addAll( bookDomain.getAuthors() );
-		}
-
-		List< org.thibaut.thelibrary.webservice.generated.jaxb2.Author > authorsResponse = new ArrayList<>();
-
-		//FIXME mettre ça dans un mapper
-		for ( Author authorDomain : authorsDomain ) {
-			org.thibaut.thelibrary.webservice.generated.jaxb2.Author authorResponse = new org.thibaut.thelibrary.webservice.generated.jaxb2.Author();
-			authorResponse.setId( authorDomain.getId() );
-			authorResponse.setFirstName( authorDomain.getFirstName() );
-			authorResponse.setLastName( authorDomain.getLastName() );
-			authorResponse.setNationality( authorDomain.getNationality() );
-
-			authorsResponse.add( authorResponse );
-		}
-
-		List< Book > bookListResponse = new ArrayList<>();
-
-		for ( org.thibaut.thelibrary.domain.entity.Book bookDomain: bookListDomain ) {
-
-			Book bookResponse = new Book();
-
-			bookResponse.setId( bookDomain.getId() );
-			bookResponse.getAuthors().addAll( authorsResponse );
-			bookResponse.setTitle( bookDomain.getTitle() );
-			bookResponse.setLanguage( bookDomain.getLanguage() );
-
-			response.getBook().add( bookResponse );
-
-		}
+		response.getBook().addAll( bookListResponse );
 
 		return response;
 	}

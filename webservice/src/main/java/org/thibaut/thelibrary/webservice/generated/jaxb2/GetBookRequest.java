@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour anonymous complex type.
  * 
- * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType&gt;
@@ -46,7 +46,7 @@ public class GetBookRequest {
     protected String bookCategory;
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ bookTitle.
+     * Obtient la valeur de la propriété bookTitle.
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class GetBookRequest {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ bookTitle.
+     * Définit la valeur de la propriété bookTitle.
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class GetBookRequest {
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ authorName.
+     * Obtient la valeur de la propriété authorName.
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class GetBookRequest {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ authorName.
+     * Définit la valeur de la propriété authorName.
      * 
      * @param value
      *     allowed object is
@@ -94,7 +94,7 @@ public class GetBookRequest {
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ bookCategory.
+     * Obtient la valeur de la propriété bookCategory.
      * 
      * @return
      *     possible object is
@@ -106,7 +106,7 @@ public class GetBookRequest {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ bookCategory.
+     * Définit la valeur de la propriété bookCategory.
      * 
      * @param value
      *     allowed object is

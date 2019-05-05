@@ -54,6 +54,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetUserRequest }
+     * 
+     */
+    public GetUserRequest createGetUserRequest() {
+        return new GetUserRequest();
+    }
+
+    /**
+     * Create an instance of {@link Role }
+     * 
+     */
+    public Role createRole() {
+        return new Role();
+    }
+
+    /**
+     * Create an instance of {@link GetUserResponse }
+     * 
+     */
+    public GetUserResponse createGetUserResponse() {
+        return new GetUserResponse();
+    }
+
+    /**
+     * Create an instance of {@link User }
+     * 
+     */
+    public User createUser() {
+        return new User();
+    }
+
+    /**
      * Create an instance of {@link Author }
      * 
      */
@@ -67,6 +99,22 @@ public class ObjectFactory {
      */
     public Category createCategory() {
         return new Category();
+    }
+
+    /**
+     * Create an instance of {@link Coordinates }
+     * 
+     */
+    public Coordinates createCoordinates() {
+        return new Coordinates();
+    }
+
+    /**
+     * Create an instance of {@link Loan }
+     * 
+     */
+    public Loan createLoan() {
+        return new Loan();
     }
 
 }

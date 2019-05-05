@@ -4,7 +4,6 @@ import com.querydsl.core.BooleanBuilder;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.domain.entity.Author;
-import org.thibaut.thelibrary.domain.entity.QAuthor;
 import org.thibaut.thelibrary.service.contract.AuthorService;
 
 import java.util.List;
