@@ -36,7 +36,7 @@ public class BooksWebServiceConfig extends WsConfigurerAdapter {
 
 	@Bean
 	public XsdSchema booksSchema() {
-		return new SimpleXsdSchema(new ClassPathResource( "books.xsd" ));
+		return new SimpleXsdSchema(new ClassPathResource( "thelibrary.xsd" ));
 	}
 
 }

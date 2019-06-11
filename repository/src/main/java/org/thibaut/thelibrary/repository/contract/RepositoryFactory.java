@@ -1,14 +1,13 @@
 package org.thibaut.thelibrary.repository.contract;
 
-import org.thibaut.thelibrary.repository.repository.AuthorRepository;
-import org.thibaut.thelibrary.repository.repository.BookRepository;
-import org.thibaut.thelibrary.repository.repository.CategoryRepository;
-import org.thibaut.thelibrary.repository.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.thibaut.thelibrary.repository.repository.*;
 
 public interface RepositoryFactory {
 
 	BookRepository getBookRepository( );
 
+	@Autowired
 	void setBookRepository( BookRepository bookRepository );
 
 	AuthorRepository getAuthorRepository( );
@@ -22,4 +21,8 @@ public interface RepositoryFactory {
 	UserRepository getUserRepository( );
 
 	void setUserRepository( UserRepository userRepository );
+
+	RoleRepository getRoleRepository( );
+
+	void setRoleRepository( RoleRepository roleRepository );
 }

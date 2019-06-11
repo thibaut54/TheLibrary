@@ -13,6 +13,7 @@ public class RepositoryFactoryImpl implements RepositoryFactory {
 	private AuthorRepository authorRepository;
 	private CategoryRepository categoryRepository;
 	private UserRepository userRepository;
+	private RoleRepository roleRepository;
 
 	@Override
 	public BookRepository getBookRepository( ) {
@@ -56,5 +57,17 @@ public class RepositoryFactoryImpl implements RepositoryFactory {
 	@Autowired
 	public void setUserRepository( UserRepository userRepository ) {
 		this.userRepository = userRepository;
+	}
+
+
+	@Override
+	public RoleRepository getRoleRepository( ) {
+		return roleRepository;
+	}
+
+	@Override
+	@Autowired
+	public void setRoleRepository( RoleRepository roleRepository ) {
+		this.roleRepository = roleRepository;
 	}
 }

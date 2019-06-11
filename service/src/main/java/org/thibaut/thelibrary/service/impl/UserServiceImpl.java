@@ -13,6 +13,7 @@ public class UserServiceImpl extends AbstractService implements UserService {
 		User user = null;
 		try {
 			user = getRepositoryFactory().getUserRepository().findByUserName(username);
+			user.setRoles( getRepositoryFactory().getRoleRepository().findRolesByUserId( user.getId() ) );
 		} catch (Exception e) {
 			throw e;
 		}
@@ -25,6 +26,7 @@ public class UserServiceImpl extends AbstractService implements UserService {
 		User user = null;
 		try {
 			user = getRepositoryFactory().getUserRepository().findByEmail(email);
+			user.setRoles( getRepositoryFactory().getRoleRepository().findRolesByUserId( user.getId() ) );
 		} catch (Exception e) {
 			throw e;
 		}

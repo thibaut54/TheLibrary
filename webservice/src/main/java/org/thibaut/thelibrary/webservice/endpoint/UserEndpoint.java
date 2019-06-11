@@ -8,11 +8,9 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import org.thibaut.thelibrary.domain.entity.User;
+import org.thibaut.thelibrary.domain.generated.jax2b.GetUserRequest;
+import org.thibaut.thelibrary.domain.generated.jax2b.GetUserResponse;
 import org.thibaut.thelibrary.service.contract.ServiceFactory;
-import org.thibaut.thelibrary.webservice.generated.jaxb2.GetUserRequest;
-import org.thibaut.thelibrary.webservice.generated.jaxb2.GetUserResponse;
-
-import java.lang.reflect.Type;
 
 @Endpoint
 @Slf4j
@@ -42,7 +40,7 @@ public class UserEndpoint {
 			user = serviceFactory.getUserService().findByUserName( request.getUserName() );
 		}
 
-		org.thibaut.thelibrary.webservice.generated.jaxb2.User userResponse = modelMapper.map( user, org.thibaut.thelibrary.webservice.generated.jaxb2.User.class );
+		org.thibaut.thelibrary.domain.generated.jax2b.User userResponse = modelMapper.map( user, org.thibaut.thelibrary.domain.generated.jax2b.User.class );
 
 		response.setUser( userResponse );
 

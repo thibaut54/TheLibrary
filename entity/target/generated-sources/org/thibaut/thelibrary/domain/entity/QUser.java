@@ -26,7 +26,7 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath firstName = createString("firstName");
 
-    public final NumberPath<Integer> id = createNumber("id", Integer.class);
+    public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath lastName = createString("lastName");
 

@@ -7,14 +7,12 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import org.thibaut.thelibrary.domain.entity.Author;
+import org.thibaut.thelibrary.domain.entity.Book;
+import org.thibaut.thelibrary.domain.generated.jax2b.GetBookRequest;
+import org.thibaut.thelibrary.domain.generated.jax2b.GetBookResponse;
 import org.thibaut.thelibrary.service.contract.ServiceFactory;
-import org.thibaut.thelibrary.webservice.generated.jaxb2.Book;
-import org.thibaut.thelibrary.webservice.generated.jaxb2.GetBookRequest;
-import org.thibaut.thelibrary.webservice.generated.jaxb2.GetBookResponse;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 @Endpoint
@@ -36,13 +34,13 @@ public class BookEndpoint {
 	@ResponsePayload
 	public GetBookResponse getBook( @RequestPayload GetBookRequest request) {
 
-		Type listType = new TypeToken<List< Book>>(){}.getType();
+		Type listType = new TypeToken<List< Book >>(){}.getType();
 
 		GetBookResponse response = new GetBookResponse();
 
-		List<org.thibaut.thelibrary.domain.entity.Book> bookListEntity = serviceFactory.getBookService().getBookByTitle( ( request.getBookTitle() ));
+		List<Book> bookListEntity = serviceFactory.getBookService().getBookByTitle( ( request.getBookTitle() ));
 
-		List< Book > bookListResponse = modelMapper.map( bookListEntity, listType );
+		List< org.thibaut.thelibrary.domain.generated.jax2b.Book > bookListResponse = modelMapper.map( bookListEntity, listType );
 
 		response.getBook().addAll( bookListResponse );
 
