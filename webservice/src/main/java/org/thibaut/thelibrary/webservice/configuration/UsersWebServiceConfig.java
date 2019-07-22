@@ -23,7 +23,7 @@
 //		return new ServletRegistrationBean(servlet, "/ws/*");
 //	}
 //
-//	@Bean(name = "user")
+//	@Bean(name = "userEntity")
 //	public DefaultWsdl11Definition defaultWsdl11Definition( XsdSchema userSchema) {
 //		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 //		wsdl11Definition.setPortTypeName("UserPort");
@@ -35,7 +35,7 @@
 //
 //	@Bean
 //	public XsdSchema userSchema() {
-//		return new SimpleXsdSchema(new ClassPathResource( "user.xsd" ));
+//		return new SimpleXsdSchema(new ClassPathResource( "userEntity.xsd" ));
 //
 //	}
 //}

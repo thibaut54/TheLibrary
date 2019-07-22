@@ -34,6 +34,10 @@
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.codehaus.mojo</groupId>-->
+<!--			<artifactId>jaxb2-maven-plugin</artifactId>-->
+<!--		</dependency>-->
 		<!--<dependency>-->
 			<!--<groupId>org.apache.cxf</groupId>-->
 			<!--<artifactId>cxf-spring-boot-starter-jaxws</artifactId>-->
@@ -62,31 +66,71 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>org.thibaut.thelibrary.webservice.application.Application</mainClass>
+					<mainClass>org.thibaut.thelibrary.webservice.Application</mainClass>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.basedir}/target/generated/src/main/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 <!--			<plugin>-->
 <!--				<groupId>org.codehaus.mojo</groupId>-->
-<!--				<artifactId>jaxb2-maven-plugin</artifactId>-->
-<!--				<version>2.4</version>-->
+<!--				<artifactId>jaxws-maven-plugin</artifactId>-->
+<!--				<version>2.5</version>-->
+<!--				<configuration>-->
+<!--					<wsdlFiles>${project.basedir}/src/main/resources/xsd/thelibrary.xsd</wsdlFiles>-->
+<!--					<packageName>org.thibaut.thelibrary</packageName>-->
+<!--					<keep>true</keep>-->
+<!--					<sourceDestDir>${project.basedir}/target/generated/src/main/java</sourceDestDir>-->
+<!--				</configuration>-->
 <!--				<executions>-->
 <!--					<execution>-->
-<!--						<id>xjc</id>-->
 <!--						<goals>-->
-<!--							<goal>xjc</goal>-->
+<!--							<goal>wsimport</goal>-->
 <!--						</goals>-->
 <!--					</execution>-->
 <!--				</executions>-->
-<!--				<configuration>-->
-<!--					&lt;!&ndash; The package of your generated sources &ndash;&gt;-->
-<!--					<packageName>org.thibaut.thelibrary</packageName>-->
-<!--					<sources>-->
-<!--						<source>${project.basedir}/src/main/resources/thelibrary.xsd</source>-->
-<!--					</sources>-->
-<!--					<outputDirectory>${project.basedir}/src/main/java/org.thibaut.thelibrary.webservice.generated.jax2b</outputDirectory>-->
-<!--				</configuration>-->
 <!--			</plugin>-->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.5.0</version>
+				<executions>
+					<execution>
+						<id>xjc-schema</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- The package of your generated sources -->
+					<sources>
+						<source>src\main\resources\xsd\thelibrary.xsd</source>
+					</sources>
+					<packageName>org.thibaut.thelibrary</packageName>
+					<clearOutputDir>false</clearOutputDir>
+<!--					<outputDirectory>${project.basedir}/src/main/java/org.thibaut.thelibrary.webservice.generated.jax2b</outputDirectory>-->
+				</configuration>
+			</plugin>
 
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>

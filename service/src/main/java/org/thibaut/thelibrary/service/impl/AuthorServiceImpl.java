@@ -1,24 +1,30 @@
 package org.thibaut.thelibrary.service.impl;
 
-import com.querydsl.core.BooleanBuilder;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-import org.thibaut.thelibrary.domain.entity.Author;
+import org.thibaut.thelibrary.domain.entity.AuthorEntity;
+import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
+import org.thibaut.thelibrary.repository.repository.UserRepository;
 import org.thibaut.thelibrary.service.contract.AuthorService;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Component
 public class AuthorServiceImpl extends AbstractService implements AuthorService {
 
+	public AuthorServiceImpl( RepositoryFactory repositoryFactory, UserRepository userRepository, EntityManager em ) {
+		super( repositoryFactory, userRepository, em );
+	}
+
 	@Override
-	public List< Author > getAuthorByLastNameAndFirstName( String lastName, String firstName ){
+	public List< AuthorEntity > getAuthorByLastNameAndFirstName( String lastName, String firstName ){
 
 		return getRepositoryFactory().getAuthorRepository().getAuthorsByFirstNameAndLastName( firstName, lastName );
 	}
 
 
-	public Author findAuthorByFirstNameAndLastName( Pageable pageable, String firstName, String lastName ){
+	public AuthorEntity findAuthorByFirstNameAndLastName( Pageable pageable, String firstName, String lastName ){
 
 		/*int pageSize = pageable.getPageSize();
 		int currentPage = pageable.getPageNumber();

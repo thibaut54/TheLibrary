@@ -1,0 +1,129 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://thelibrary.org/ws"
+           targetNamespace="http://thelibrary.org/ws"
+           elementFormDefault="qualified">
+
+	<xs:element name="getBookRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="bookTitle" type="xs:string"/>
+				<xs:element name="authorName" type="xs:string"/>
+				<xs:element name="bookCategory" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getBookResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="book" type="tns:bookDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="bookDtoJaxb">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="language" type="xs:string"/>
+			<xs:element name="authors" type="tns:authorDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="categories" type="tns:categoryDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="authorDtoJaxb">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="firstName" type="xs:string"/>
+			<xs:element name="lastName" type="xs:string"/>
+			<xs:element name="nationality" type="xs:string"/>
+			<xs:element name="books" type="tns:bookDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="categoryDtoJaxb">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="style" type="xs:string"/>
+			<xs:element name="books" type="tns:bookDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="getUserRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userName" type="xs:string"/>
+				<xs:element name="email" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getUserResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userDtoJaxb" type="tns:userDtoJaxb" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="userDtoJaxb">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="password" type="xs:string"/>
+			<xs:element name="firstName" type="xs:string"/>
+			<xs:element name="lastName" type="xs:string"/>
+			<xs:element name="userName" type="xs:string"/>
+			<!--			<xs:element name="registrationDate" type="xs:dateTime"/>-->
+			<xs:element name="coordinates" type="tns:coordinatesDtoJaxb" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="roles" type="tns:roleDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="loans" type="tns:loanDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="coordinatesDtoJaxb">
+	<xs:sequence>
+		<xs:element name="id" type="xs:long"/>
+		<xs:element name="email" type="xs:string"/>
+		<xs:element name="street" type="xs:string"/>
+		<xs:element name="streetNumber" type="xs:string"/>
+		<xs:element name="additionalInformation" type="xs:string"/>
+		<xs:element name="city" type="xs:string"/>
+		<xs:element name="postalCode" type="xs:long"/>
+		<xs:element name="phone" type="xs:string"/>
+		<xs:element name="user" type="tns:userDtoJaxb"/>
+		<xs:element name="editor" type="tns:editorDtoJaxb"/>
+
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="editorDtoJaxb">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="coordinates" type="tns:coordinatesDtoJaxb"/>
+			<xs:element name="books" type="tns:bookDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="roleDtoJaxb">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="role" type="xs:string"/>
+			<xs:element name="users" type="tns:userDtoJaxb" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="loanDtoJaxb">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="startDate" type="xs:date"/>
+			<xs:element name="returned" type="xs:boolean"/>
+			<xs:element name="initialEndDate" type="xs:date"/>
+			<xs:element name="extendedEndDate" type="xs:date"/>
+			<xs:element name="user" type="tns:userDtoJaxb"/>
+			<xs:element name="book" type="tns:bookDtoJaxb"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

@@ -23,11 +23,11 @@ public class BooksOfLibraries {
 
 	@ManyToOne
 	@MapsId("bookId")
-	private Book book;
+	private BookEntity book;
 
 	@ManyToOne
 	@MapsId("libraryId")
-	private Library library;
+	private LibraryEntity library;
 
 	private Integer stock;
 }

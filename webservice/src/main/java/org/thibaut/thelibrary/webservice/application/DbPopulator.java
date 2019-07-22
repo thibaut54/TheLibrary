@@ -59,10 +59,10 @@
 //
 //		//-----POPULATE USER_ROLES
 //
-//		List< Role > roles = new ArrayList<>();
+//		List< RoleEntity > roles = new ArrayList<>();
 //
-//		roles.add( GenericBuilder.of( Role::new )
-//							.with( Role::setRole, "ROLE_USER" )
+//		roles.add( GenericBuilder.of( RoleEntity::new )
+//							.with( RoleEntity::setRole, "ROLE_USER" )
 //							.build());
 //
 //		this.roleRepository.saveAll( roles );
@@ -70,52 +70,52 @@
 //
 //		//-----POPULATE USERS
 //
-//		List< User > users = new ArrayList<>(  );
+//		List< UserEntity > userEntities = new ArrayList<>(  );
 //
 //		//pwd = 1235
-//		users.add( GenericBuilder.of( User::new )
-//							.with(User::setFirstName, "John")
-//							.with(User::setLastName, "Doe")
-//							.with(User::setUserName, "TheJohn")
-//							.with(User::setPassword, passwordService.crypt( "1235"))
-//				           .with(User::setRegistrationDate, LocalDate.now())
+//		userEntities.add( GenericBuilder.of( UserEntity::new )
+//							.with(UserEntity::setFirstName, "John")
+//							.with(UserEntity::setLastName, "Doe")
+//							.with(UserEntity::setUserName, "TheJohn")
+//							.with(UserEntity::setPassword, passwordService.crypt( "1235"))
+//				           .with(UserEntity::setRegistrationDate, LocalDate.now())
 //				           .build());
 //
 //
 //		//-----SET ROLE
 //
-//		List< Role > rolesUser1 = new ArrayList<>();
+//		List< RoleEntity > rolesUser1 = new ArrayList<>();
 //		rolesUser1.add( this.roleRepository.findByRoleLike( "%USER" ) );
 //
-//		users.get( 0 ).setRoles( rolesUser1 );
+//		userEntities.get( 0 ).setRoles( rolesUser1 );
 //
 //
 //		//-----POPULATE COORDINATES OF USERS
 //
-//		List< Coordinates > coordinatesUsers = new ArrayList<>();
-//		coordinatesUsers.add( GenericBuilder.of( Coordinates::new )
-//									.with( Coordinates::setEmail, "john@gmail.com" )
+//		List< CoordinatesEntity > coordinatesUsers = new ArrayList<>();
+//		coordinatesUsers.add( GenericBuilder.of( CoordinatesEntity::new )
+//									.with( CoordinatesEntity::setEmail, "john@gmail.com" )
 //									.build());
 //
-//		users.get( 0 ).setCoordinates( coordinatesUsers.get( 0 ) );
+//		userEntities.get( 0 ).setCoordinates( coordinatesUsers.get( 0 ) );
 //
 //		this.coordinatesRepository.saveAll( coordinatesUsers );
 //
 //
 //		//-----SAVE ALL USERS
 //
-//		this.userRepository.saveAll( users );
+//		this.userRepository.saveAll( userEntities );
 //
 //
 //		//-----POPULATE LIBRARIES
 //
-//		List< Library > libraries = new ArrayList<>();
+//		List< LibraryEntity > libraries = new ArrayList<>();
 //
-//		libraries.add( GenericBuilder.of( Library::new )
-//								.with( Library::setName, "Library1" )
+//		libraries.add( GenericBuilder.of( LibraryEntity::new )
+//								.with( LibraryEntity::setName, "Library1" )
 //								.build());
-//		libraries.add( GenericBuilder.of( Library::new )
-//				               .with( Library::setName, "Library2" )
+//		libraries.add( GenericBuilder.of( LibraryEntity::new )
+//				               .with( LibraryEntity::setName, "Library2" )
 //				               .build());
 //
 //		this.libraryRepository.saveAll( libraries );
@@ -123,12 +123,12 @@
 //
 //		//-----POPULATE COORDINATES OF LIBRARIES
 //
-//		List< Coordinates > coordinatesLibraries = new ArrayList<>();
-//		coordinatesLibraries.add( GenericBuilder.of( Coordinates::new )
-//				                      .with( Coordinates::setEmail, "librariry1@gmail.com" )
+//		List< CoordinatesEntity > coordinatesLibraries = new ArrayList<>();
+//		coordinatesLibraries.add( GenericBuilder.of( CoordinatesEntity::new )
+//				                      .with( CoordinatesEntity::setEmail, "librariry1@gmail.com" )
 //				                      .build());
-//		coordinatesLibraries.add( GenericBuilder.of( Coordinates::new )
-//				                          .with( Coordinates::setEmail, "librariry2@gmail.com" )
+//		coordinatesLibraries.add( GenericBuilder.of( CoordinatesEntity::new )
+//				                          .with( CoordinatesEntity::setEmail, "librariry2@gmail.com" )
 //				                          .build());
 //
 //		libraries.get( 0 ).setCoordinates( coordinatesLibraries.get( 0 ) );
@@ -139,41 +139,41 @@
 //
 //		//-----POPULATE BOOKS
 //
-//		List< Book > booksLibrary1 = new ArrayList<>();
-//		booksLibrary1.add( GenericBuilder.of(Book::new)
-//									.with( Book::setTitle, "Book1" )
-//				                   .with( Book::setNumberOfPages, 145 )
-//				                   .with( Book::setLanguage, "English")
-//									.with( Book::setLibraries, libraries )
+//		List< BookEntity > booksLibrary1 = new ArrayList<>();
+//		booksLibrary1.add( GenericBuilder.of(BookEntity::new)
+//									.with( BookEntity::setTitle, "Book1" )
+//				                   .with( BookEntity::setNumberOfPages, 145 )
+//				                   .with( BookEntity::setLanguage, "English")
+//									.with( BookEntity::setLibraries, libraries )
 //									.build());
 //
 //		this.bookRepository.saveAll( booksLibrary1 );
 //
 //		//-----POPULATE STYLE
 //
-//		List<Category> styles = new ArrayList<>();
-//		styles.add( GenericBuilder.of( Category::new )
-//						.with( Category::setCategory, "CHILDREN" )
+//		List<CategoryEntity> styles = new ArrayList<>();
+//		styles.add( GenericBuilder.of( CategoryEntity::new )
+//						.with( CategoryEntity::setCategory, "CHILDREN" )
 //						.build());
-//		styles.add( GenericBuilder.of( Category::new )
-//				            .with( Category::setCategory, "CULTURE" )
+//		styles.add( GenericBuilder.of( CategoryEntity::new )
+//				            .with( CategoryEntity::setCategory, "CULTURE" )
 //				            .build());
-//		styles.add( GenericBuilder.of( Category::new )
-//				            .with( Category::setCategory, "EDUCATION" )
+//		styles.add( GenericBuilder.of( CategoryEntity::new )
+//				            .with( CategoryEntity::setCategory, "EDUCATION" )
 //				            .build());
-//		styles.add( GenericBuilder.of( Category::new )
-//				            .with( Category::setCategory, "FANTASY")
+//		styles.add( GenericBuilder.of( CategoryEntity::new )
+//				            .with( CategoryEntity::setCategory, "FANTASY")
 //				            .build());
-//		styles.add( GenericBuilder.of( Category::new )
-//				            .with( Category::setCategory, "LITERATURE&FICTION")
+//		styles.add( GenericBuilder.of( CategoryEntity::new )
+//				            .with( CategoryEntity::setCategory, "LITERATURE&FICTION")
 //				            .build());
 //		this.categoryRepository.saveAll( styles );
 //
 //		//-----SET STYLE OF BOOK
-//		List<Category> stylesBook1 = new ArrayList<>();
+//		List<CategoryEntity> stylesBook1 = new ArrayList<>();
 //		stylesBook1.add( this.categoryRepository.findAll().get( 1 ) );
 //		stylesBook1.add( this.categoryRepository.findAll().get( 2 ) );
-//		Book book = this.bookRepository.findAll().get( 0 );
+//		BookEntity book = this.bookRepository.findAll().get( 0 );
 //		book.setCategories( stylesBook1 );
 //		this.bookRepository.save( book );
 //

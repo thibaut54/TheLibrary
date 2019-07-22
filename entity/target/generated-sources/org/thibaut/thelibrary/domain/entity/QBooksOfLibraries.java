@@ -22,11 +22,11 @@ public class QBooksOfLibraries extends EntityPathBase<BooksOfLibraries> {
 
     public static final QBooksOfLibraries booksOfLibraries = new QBooksOfLibraries("booksOfLibraries");
 
-    public final QBook book;
+    public final QBookEntity book;
 
     public final QBookLibraryId id;
 
-    public final QLibrary library;
+    public final QLibraryEntity library;
 
     public final NumberPath<Integer> stock = createNumber("stock", Integer.class);
 
@@ -48,9 +48,9 @@ public class QBooksOfLibraries extends EntityPathBase<BooksOfLibraries> {
 
     public QBooksOfLibraries(Class<? extends BooksOfLibraries> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.book = inits.isInitialized("book") ? new QBook(forProperty("book"), inits.get("book")) : null;
+        this.book = inits.isInitialized("book") ? new QBookEntity(forProperty("book"), inits.get("book")) : null;
         this.id = inits.isInitialized("id") ? new QBookLibraryId(forProperty("id")) : null;
-        this.library = inits.isInitialized("library") ? new QLibrary(forProperty("library"), inits.get("library")) : null;
+        this.library = inits.isInitialized("library") ? new QLibraryEntity(forProperty("library"), inits.get("library")) : null;
     }
 
 }

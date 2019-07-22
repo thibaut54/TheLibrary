@@ -1,50 +1,51 @@
 package org.thibaut.thelibrary.webservice.endpoint;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import org.thibaut.thelibrary.domain.entity.User;
-import org.thibaut.thelibrary.domain.generated.jax2b.GetUserRequest;
-import org.thibaut.thelibrary.domain.generated.jax2b.GetUserResponse;
+import org.thibaut.thelibrary.GetUserRequest;
+import org.thibaut.thelibrary.GetUserResponse;
+import org.thibaut.thelibrary.UserDtoJaxb;
+import org.thibaut.thelibrary.domain.entity.RoleEntity;
+import org.thibaut.thelibrary.domain.entity.UserEntity;
 import org.thibaut.thelibrary.service.contract.ServiceFactory;
+import org.thibaut.thelibrary.webservice.constant.SoapProperties;
+import org.thibaut.thelibrary.webservice.converter.UserEntityToDto;
+
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 @Endpoint
 @Slf4j
+@AllArgsConstructor
+//@XmlSeeAlso( { RoleEntity.class } )
 public class UserEndpoint {
 
-	private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
+	private final ServiceFactory serviceFactory;
+	private final UserEntityToDto userEntityToDto;
 
-	private ServiceFactory serviceFactory;
 
-	private ModelMapper modelMapper = new ModelMapper();
-
-	@Autowired
-	public UserEndpoint(ServiceFactory serviceFactory) {
-		this.serviceFactory = serviceFactory;
-	}
-
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUserRequest")
+	@PayloadRoot(namespace = SoapProperties.TARGET_NAME_SPACE, localPart = "getUserRequest")
 	@ResponsePayload
 	public GetUserResponse getUser( @RequestPayload GetUserRequest request ){
 
 		GetUserResponse response = new GetUserResponse();
 
-		User user = null;
+		UserEntity userEntity = null;
 		if ( request.getEmail() != null ) {
-			user = serviceFactory.getUserService().findByEmail( request.getEmail() );
+			userEntity = serviceFactory.getUserService().findByEmail( request.getEmail() );
 		} else {
-			user = serviceFactory.getUserService().findByUserName( request.getUserName() );
+			userEntity = serviceFactory.getUserService().findByUserName( request.getUserName() );
 		}
 
-		org.thibaut.thelibrary.domain.generated.jax2b.User userResponse = modelMapper.map( user, org.thibaut.thelibrary.domain.generated.jax2b.User.class );
+		UserDtoJaxb userDto = userEntityToDto.apply( userEntity );
 
-		response.setUser( userResponse );
+		response.setUserDtoJaxb( userDto );
 
-		log.info( "Authentication successful. User with email " + request.getEmail() + " is connected." );
+		log.info( "Authentication successful. UserEntity with email " + request.getEmail() + " is connected." );
 
 		return response;
 	}

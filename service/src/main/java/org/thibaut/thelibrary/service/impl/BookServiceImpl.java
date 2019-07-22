@@ -1,21 +1,20 @@
 package org.thibaut.thelibrary.service.impl;
 
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.jpa.impl.JPAQuery;
-import com.querydsl.jpa.impl.JPAQueryFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.domain.entity.*;
+import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
+import org.thibaut.thelibrary.repository.repository.UserRepository;
 import org.thibaut.thelibrary.service.contract.BookService;
 
-import java.util.Collections;
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Component
 public class BookServiceImpl extends AbstractService implements BookService {
+
+	public BookServiceImpl( RepositoryFactory repositoryFactory, UserRepository userRepository, EntityManager em ) {
+		super( repositoryFactory, userRepository, em );
+	}
 
 	@Override
 	public String getBookTitle( Integer id ){
@@ -23,19 +22,19 @@ public class BookServiceImpl extends AbstractService implements BookService {
 	}
 
 	@Override
-	public Book getBookById( Integer id ){
+	public BookEntity getBookById( Integer id ){
 		return getRepositoryFactory().getBookRepository().findById( id ).get();
 	}
 
 	@Override
-	public List<Book> getBookByTitle( String title ){
+	public List< BookEntity > getBookByTitle( String title ){
 		return getRepositoryFactory().getBookRepository().getBooksByTitleContains( title );
 	}
 
 
-//	public List<Book> getBookByTitle( String title, String authorLastName, String authorFirstName, String style){
+//	public List<BookEntity> getBookByTitle( String title, String authorLastName, String authorFirstName, String style){
 //
-//		List< Author > authors = getRepositoryFactory().getAuthorRepository().getAuthorsByLastNameAndFirstName( authorLastName,  authorFirstName  );
+//		List< AuthorEntity > authors = getRepositoryFactory().getAuthorRepository().getAuthorsByLastNameAndFirstName( authorLastName,  authorFirstName  );
 //
 ////		return getRepositoryFactory().getBookRepository().getBooksByTitleContainsAndAuthorsContainsAndStylesContains( title,  authors,  );
 //		return null;
@@ -77,7 +76,7 @@ public class BookServiceImpl extends AbstractService implements BookService {
 //		}
 //
 //		if( ! authorsNames.isEmpty() ){
-//			for ( Author author: authorsNames ) {
+//			for ( AuthorEntity author: authorsNames ) {
 //
 //			}
 //			booleanBuilder.and( qAtlas.country.containsIgnoreCase(country) );

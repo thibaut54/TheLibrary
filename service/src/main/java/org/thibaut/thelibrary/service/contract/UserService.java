@@ -1,10 +1,10 @@
 package org.thibaut.thelibrary.service.contract;
 
-import org.thibaut.thelibrary.domain.entity.User;
+import org.thibaut.thelibrary.domain.entity.UserEntity;
 
 public interface UserService {
 
-	User findByUserName( String username );
+	UserEntity findByUserName( String username );
 
-	User findByEmail( String email );
+	UserEntity findByEmail( String email );
 }

@@ -1,6 +1,6 @@
 package org.thibaut.thelibrary.service.contract;
 
-import org.thibaut.thelibrary.domain.entity.Book;
+import org.thibaut.thelibrary.domain.entity.BookEntity;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public interface BookService {
 
 	String getBookTitle( Integer id );
 
-	Book getBookById( Integer id );
+	BookEntity getBookById( Integer id );
 
-	List<Book> getBookByTitle( String title );
+	List< BookEntity > getBookByTitle( String title );
 }

@@ -5,18 +5,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.thibaut.thelibrary.domain.entity.Author;
+import org.thibaut.thelibrary.domain.entity.AuthorEntity;
 
 import java.util.List;
 
 @Repository
-public interface AuthorRepository extends JpaRepository< Author, Integer >, QuerydslPredicateExecutor<Author> {
+public interface AuthorRepository extends JpaRepository< AuthorEntity, Integer >, QuerydslPredicateExecutor< AuthorEntity > {
 
 
-	public List<Author> getAuthorsByFirstNameAndLastName( String firstName, String lastName );
+	public List< AuthorEntity > getAuthorsByFirstNameAndLastName( String firstName, String lastName );
 
 
-	public Author getAuthorByFirstNameAndLastName( String firstName, String lastName );
+	public AuthorEntity getAuthorByFirstNameAndLastName( String firstName, String lastName );
 
 
 	@Query(value = "SELECT a FROM Author AS a " +
@@ -25,6 +25,6 @@ public interface AuthorRepository extends JpaRepository< Author, Integer >, Quer
                     "SELECT a FROM Author AS a " +
 		                "WHERE a.first_name=:lastName OR a.last_name=:lastName",
 			nativeQuery = true)
-	public Author findAuthorByFirstNameAndLastName( @Param( "firstName" ) String firstName, @Param ( "lastName" ) String lastName );
+	public AuthorEntity findAuthorByFirstNameAndLastName( @Param( "firstName" ) String firstName, @Param ( "lastName" ) String lastName );
 
 }

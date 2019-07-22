@@ -7,7 +7,7 @@
 //import org.springframework.test.context.junit4.SpringRunner;
 //import org.springframework.transaction.annotation.Transactional;
 //import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
-//import org.thibaut.thelibrary.webservice.application.Application;
+//import org.thibaut.thelibrary.webservice.Application;
 //import org.thibaut.thelibrary.webservice.webservice.SearchBookWebService;
 //
 //import static junit.framework.TestCase.assertEquals;

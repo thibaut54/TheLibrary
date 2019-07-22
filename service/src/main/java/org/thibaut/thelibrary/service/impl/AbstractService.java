@@ -1,33 +1,40 @@
 package org.thibaut.thelibrary.service.impl;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.repository.contract.RepositoryFactory;
+import org.thibaut.thelibrary.repository.repository.UserRepository;
 
 import javax.persistence.EntityManager;
 
 @Component
-public abstract class AbstractService {
+@AllArgsConstructor
+@Getter
+@Setter
+abstract class AbstractService {
 
-	private RepositoryFactory repositoryFactory;
+	private final RepositoryFactory repositoryFactory;
+	private final UserRepository userRepository;
+	private final EntityManager em;
 
-	private EntityManager em;
-
-	RepositoryFactory getRepositoryFactory( ) {
-		return repositoryFactory;
-	}
-
-	@Autowired
-	public void setRepositoryFactory( RepositoryFactory repositoryFactory ) {
-		this.repositoryFactory = repositoryFactory;
-	}
-
-	public EntityManager getEm( ) {
-		return em;
-	}
-
-	@Autowired
-	public void setEm( EntityManager em ) {
-		this.em = em;
-	}
+//	RepositoryFactory getRepositoryFactory( ) {
+//		return repositoryFactory;
+//	}
+//
+//	@Autowired
+//	public void setRepositoryFactory( RepositoryFactory repositoryFactory ) {
+//		this.repositoryFactory = repositoryFactory;
+//	}
+//
+//	public EntityManager getEm( ) {
+//		return em;
+//	}
+//
+//	@Autowired
+//	public void setEm( EntityManager em ) {
+//		this.em = em;
+//	}
 }
