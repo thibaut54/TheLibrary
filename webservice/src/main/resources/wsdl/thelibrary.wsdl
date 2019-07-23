@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="thelibrary"
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+          xmlns:sch="http://thelibrary.org/ws"
+	      xmlns:tns="http://thelibrary.org/ws"
+	      xmlns:types="http://thelibrary.org/ws"
+	      targetNamespace="http://thelibrary.org/ws">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://thelibrary.org/ws">
+			<xs:element name="getBookRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="bookTitle" type="xs:string"/>
+						<xs:element name="authorName" type="xs:string"/>
+						<xs:element name="bookCategory" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getBookResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="book" type="tns:bookDtoJaxb"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="bookDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="title" type="xs:string"/>
+					<xs:element name="language" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="authors" type="tns:authorDtoJaxb"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="categories" type="tns:categoryDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="authorDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="firstName" type="xs:string"/>
+					<xs:element name="lastName" type="xs:string"/>
+					<xs:element name="nationality" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="books" type="tns:bookDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="categoryDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="style" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="books" type="tns:bookDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="getUserRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="userName" type="xs:string"/>
+						<xs:element name="email" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getUserResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" name="userDtoJaxb" type="tns:userDtoJaxb"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="userDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="password" type="xs:string"/>
+					<xs:element name="firstName" type="xs:string"/>
+					<xs:element name="lastName" type="xs:string"/>
+					<xs:element name="userName" type="xs:string"/>
+					<!--
+							   <xs:element name="registrationDate" type="xs:dateTime"/>
+				   -->
+					<xs:element maxOccurs="1" minOccurs="0" name="coordinates" type="tns:coordinatesDtoJaxb"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="roles" type="tns:roleDtoJaxb"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="loans" type="tns:loanDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="coordinatesDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="email" type="xs:string"/>
+					<xs:element name="street" type="xs:string"/>
+					<xs:element name="streetNumber" type="xs:string"/>
+					<xs:element name="additionalInformation" type="xs:string"/>
+					<xs:element name="city" type="xs:string"/>
+					<xs:element name="postalCode" type="xs:long"/>
+					<xs:element name="phone" type="xs:string"/>
+					<xs:element name="user" type="tns:userDtoJaxb"/>
+					<xs:element name="editor" type="tns:editorDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="editorDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="coordinates" type="tns:coordinatesDtoJaxb"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="books" type="tns:bookDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="roleDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="role" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="users" type="tns:userDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="loanDtoJaxb">
+				<xs:sequence>
+					<xs:element name="id" type="xs:long"/>
+					<xs:element name="startDate" type="xs:date"/>
+					<xs:element name="returned" type="xs:boolean"/>
+					<xs:element name="initialEndDate" type="xs:date"/>
+					<xs:element name="extendedEndDate" type="xs:date"/>
+					<xs:element name="user" type="tns:userDtoJaxb"/>
+					<xs:element name="book" type="tns:bookDtoJaxb"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="getBookRequest">
+		<wsdl:part element="tns:getBookRequest" name="getBookRequest"> </wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getUserRequest">
+		<wsdl:part element="tns:getUserRequest" name="getUserRequest"> </wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getBookResponse">
+		<wsdl:part element="tns:getBookResponse" name="getBookResponse"> </wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getUserResponse">
+		<wsdl:part element="tns:getUserResponse" name="getUserResponse"> </wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="ThelibraryPort">
+		<wsdl:operation name="getBook">
+			<wsdl:input message="tns:getBookRequest" name="getBookRequest"> </wsdl:input>
+			<wsdl:output message="tns:getBookResponse" name="getBookResponse"> </wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getUser">
+			<wsdl:input message="tns:getUserRequest" name="getUserRequest"> </wsdl:input>
+			<wsdl:output message="tns:getUserResponse" name="getUserResponse"> </wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ThelibraryPortSoap11" type="tns:ThelibraryPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getBook">
+			<soap:operation soapAction=""/>
+			<wsdl:input name="getBookRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getBookResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getUser">
+			<soap:operation soapAction=""/>
+			<wsdl:input name="getUserRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getUserResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ThelibraryPortService">
+		<wsdl:port binding="tns:ThelibraryPortSoap11" name="ThelibraryPortSoap11">
+			<soap:address location="http://localhost:8080/ws"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

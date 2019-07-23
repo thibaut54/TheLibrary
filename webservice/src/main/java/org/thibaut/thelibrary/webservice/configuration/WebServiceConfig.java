@@ -13,12 +13,15 @@ import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
+import org.thibaut.thelibrary.domain.entity.BookEntity;
 import org.thibaut.thelibrary.webservice.constant.SoapProperties;
 
 import javax.annotation.PostConstruct;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 @EnableWs
 @Configuration
+@XmlSeeAlso( { BookEntity.class } )
 public class WebServiceConfig extends WsConfigurerAdapter {
 
 	@Bean

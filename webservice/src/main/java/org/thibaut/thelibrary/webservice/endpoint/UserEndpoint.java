@@ -1,7 +1,9 @@
 package org.thibaut.thelibrary.webservice.endpoint;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -20,12 +22,15 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 
 @Endpoint
 @Slf4j
-@AllArgsConstructor
-//@XmlSeeAlso( { RoleEntity.class } )
+@NoArgsConstructor
+//@AllArgsConstructor
+@XmlSeeAlso( { RoleEntity.class } )
 public class UserEndpoint {
 
-	private final ServiceFactory serviceFactory;
-	private final UserEntityToDto userEntityToDto;
+	@Autowired
+	private ServiceFactory serviceFactory;
+	@Autowired
+	private UserEntityToDto userEntityToDto;
 
 
 	@PayloadRoot(namespace = SoapProperties.TARGET_NAME_SPACE, localPart = "getUserRequest")
